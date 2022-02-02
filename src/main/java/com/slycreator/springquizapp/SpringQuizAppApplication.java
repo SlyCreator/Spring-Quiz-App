@@ -23,7 +23,7 @@ public class SpringQuizAppApplication {
     public void initQuestion(){
         for (int i = 1;i<=10;i++){
         Question question = new Question();
-        question.setQuestion("what of this is a datatype");
+        question.setQuestion("which of this is a datatype");
 
         List<Option> options = new ArrayList<>();
 
@@ -50,11 +50,9 @@ public class SpringQuizAppApplication {
         options.add(option4);
 
         question.setOptions(options);
-
-            questionRepository.save(question);
+        questionRepository.save(question);
         }
     }
-//    private PasswordEncoder passwordEncoder;
     @Bean
     PasswordEncoder getPasswordEncoder(){
         return new BCryptPasswordEncoder();

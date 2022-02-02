@@ -10,9 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
@@ -28,7 +26,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     public AppResponse fetchQuestion(){
-        Page<Question> questions = questionRepository.findAll(Pageable.ofSize(10));
+        Page<Question> questions = questionRepository.findAll(Pageable.ofSize(5));
         Map<String,Object> map = new HashMap<>();
         map.put("questions",questions);
         return AppResponse.ok().data(map).message("questions and answer retrieved successfully");

@@ -6,22 +6,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "questions")
-public class Question implements Serializable {
+@Table(name = "quiz_answers")
+public class QuizAnswer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String question;
 
-    @OneToMany(mappedBy = "question",fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonIgnoreProperties("question")
-    private List<Option> options;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "quiz_id")
+    @JsonIgnoreProperties("quizs")
+    private Quiz quiz;
 
+    private int questionId;
+
+    private int optionId;
+
+    private boolean isCorrect;
 }
