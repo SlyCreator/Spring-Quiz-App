@@ -1,30 +1,33 @@
 package com.slycreator.springquizapp.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "options")
-public class Option {
+@Table(name = "quizzes")
+public class Quiz {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String option;
 
-    @JsonIgnore
-    private boolean isCorrect = false;
+    private int id;
+    private int score;
+
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "question_id")
-    @JsonIgnoreProperties("options")
-    private Question question;
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "quiz",fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JsonIgnoreProperties("quiz")
+    private List<QuizAnswer> quizAnswers;
 }
