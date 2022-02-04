@@ -16,43 +16,43 @@ import java.util.List;
 
 @SpringBootApplication
 public class SpringQuizAppApplication {
-    @Autowired
-    private QuestionRepository questionRepository;
+//    @Autowired
+//    private QuestionRepository questionRepository;
 
-    @PostConstruct
-    public void initQuestion(){
-        for (int i = 1;i<=10;i++){
-        Question question = new Question();
-        question.setQuestion("which of this is a datatype");
-
-        List<Option> options = new ArrayList<>();
-
-        Option option1 = new Option();
-        option1.setOption("Loop");
-        option1.setQuestion(question);
-        options.add(option1);
-
-
-        Option option2 = new Option();
-        option2.setQuestion(question);
-        option2.setOption("Class");
-        options.add(option2);
-
-        Option option3 = new Option();
-        option3.setOption("LinkedList");
-        option3.setQuestion(question);
-        option3.setCorrect(true);
-        options.add(option3);
-
-        Option option4 = new Option();
-        option4.setOption("Method");
-        option4.setQuestion(question);
-        options.add(option4);
-
-        question.setOptions(options);
-        questionRepository.save(question);
-        }
-    }
+//    @PostConstruct
+//    public void initQuestion(){
+//        for (int i = 1;i<=10;i++){
+//        Question question = new Question();
+//        question.setQuestion("which of this is a datatype");
+//
+//        List<Option> options = new ArrayList<>();
+//
+//        Option option1 = new Option();
+//        option1.setOption("Loop");
+//        option1.setQuestion(question);
+//        options.add(option1);
+//
+//
+//        Option option2 = new Option();
+//        option2.setQuestion(question);
+//        option2.setOption("Class");
+//        options.add(option2);
+//
+//        Option option3 = new Option();
+//        option3.setOption("LinkedList");
+//        option3.setQuestion(question);
+//        option3.setCorrect(true);
+//        options.add(option3);
+//
+//        Option option4 = new Option();
+//        option4.setOption("Method");
+//        option4.setQuestion(question);
+//        options.add(option4);
+//
+//        question.setOptions(options);
+//        questionRepository.save(question);
+//        }
+//    }
     @Bean
     PasswordEncoder getPasswordEncoder(){
         return new BCryptPasswordEncoder();
