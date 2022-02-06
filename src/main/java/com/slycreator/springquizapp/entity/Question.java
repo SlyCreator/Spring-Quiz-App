@@ -24,4 +24,10 @@ public class Question implements Serializable {
     @JsonIgnoreProperties("question")
     private List<Option> options;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "topic_id")
+    @JsonIgnoreProperties("questions")
+    private Topic topic;
+
+
 }
