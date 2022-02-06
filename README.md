@@ -18,7 +18,7 @@ Locate the application.properties file and modify the database username,password
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url = jdbc:mysql://localhost:3306/database-name //modify the databaseName
 spring.datasource.username = root //Modify this to your sql usernmae
-spring.datasource.password = password //modify this to sql password or blank if it doesnt have.
+spring.datasource.password = password //modify this to sql password or blank if you did not set password.
 spring.jpa.show-sql = false
 spring.jpa.hibernate.ddl-auto = create
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
