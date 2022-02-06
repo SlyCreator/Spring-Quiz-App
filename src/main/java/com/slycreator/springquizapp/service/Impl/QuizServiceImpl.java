@@ -48,7 +48,7 @@ public class QuizServiceImpl implements QuizService {
         List<QuizAnswer> quizAnswers = new ArrayList<>();
         optionList.stream().forEach((option)->{
             boolean isCorrect = false;
-            if (option.isCorrect() == true){
+            if (option.getIsCorrect() == true){
                 isCorrect = true;
                 score.getAndIncrement();
             }
