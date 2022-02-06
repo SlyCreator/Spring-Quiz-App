@@ -19,9 +19,18 @@ public class Option {
     private int id;
     private String option;
 
-
-    @JsonProperty("isCorrect")
+    @Getter(AccessLevel.NONE)
     private boolean correct;
+//    @JsonProperty("isCorrect")
+
+    @JsonIgnore
+    public boolean getIsCorrect() {
+        return this.correct;
+    }
+    @JsonProperty
+    public boolean setIsCorrect(boolean correct) {
+        return this.correct = correct;
+    }
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "question_id")

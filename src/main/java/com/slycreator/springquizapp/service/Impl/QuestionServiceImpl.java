@@ -39,8 +39,8 @@ public class QuestionServiceImpl implements QuestionService {
             optionVOList.stream().forEach((optionVo) ->{
                 Option option = new Option();
                 option.setOption(optionVo.getOption());
-                System.out.println("Notice Me "+ optionVo.isCorrect());
-                option.setCorrect(optionVo.isCorrect());
+                System.out.println("Notice Me "+ optionVo.getIsCorrect());
+                option.setCorrect(optionVo.getIsCorrect());
                 option.setQuestion(question);
                 options.add(option);
             });
