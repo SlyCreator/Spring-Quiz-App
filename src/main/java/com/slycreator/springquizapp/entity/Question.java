@@ -28,6 +28,6 @@ public class Question implements Serializable {
     @JoinColumn(name = "topic_id")
     @JsonIgnoreProperties("questions")
     private Topic topic;
-      //private Integer topicId;
+
 
 }

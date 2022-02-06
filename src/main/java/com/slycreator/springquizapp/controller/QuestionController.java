@@ -18,7 +18,7 @@ public class QuestionController {
     public AppResponse fetchQuestions(){
         return this.questionService.fetchAll();
     }
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public AppResponse fetchOneQuestion(@PathVariable Integer id){
         return this.questionService.fetchOne(id);
     }
@@ -32,12 +32,12 @@ public class QuestionController {
         return this.questionService.create(questionVO);
     }
 
-    @PatchMapping("{/id}")
+    @PatchMapping("/{id}")
     public AppResponse editQuestion(@RequestBody QuestionVO questionVO,@PathVariable Integer id){
         return this.questionService.edit(questionVO,id);
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public AppResponse deleteQuestion(@PathVariable Integer id){
         return this.questionService.delete(id);
     }

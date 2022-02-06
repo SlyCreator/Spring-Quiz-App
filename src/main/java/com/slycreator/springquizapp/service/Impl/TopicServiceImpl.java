@@ -48,8 +48,14 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public AppResponse edit(Topic topic, Integer integer) {
-        return null;
+    public AppResponse edit(Topic topic, Integer id) {
+        Topic updateTopic = topicRepository.findById(id).orElse(null);
+        updateTopic.setTitle(topic.getTitle());
+        updateTopic.setDescription(topic.getDescription());
+        Map map = new HashMap<>();
+        map.put("topic",map);
+        return AppResponse.ok().code(200)
+                .data(map).message("updated successfully");
     }
 
     @Override

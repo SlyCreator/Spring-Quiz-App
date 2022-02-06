@@ -24,17 +24,17 @@ public class TopicController {
     {
         return this.topicService.fetchAll();
     }
-    @GetMapping("{/id}")
-    public AppResponse fetchOneTopic(@PathVariable Integer integer)
+    @GetMapping("/{id}")
+    public AppResponse fetchOneTopic(@PathVariable Integer id)
     {
-        return this.topicService.fetchOne(integer);
+        return this.topicService.fetchOne(id);
     }
-    @PatchMapping("{/id}")
+    @PatchMapping("/{id}")
     public AppResponse updateTopic(@PathVariable Integer id,@RequestBody Topic topic)
     {
         return this.topicService.edit(topic,id);
     }
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public AppResponse deleteTopic(@PathVariable Integer id)
     {
         return this.topicService.delete(id);

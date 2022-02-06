@@ -18,7 +18,7 @@ import java.util.List;
 public class SpringQuizAppApplication {
 //    @Autowired
 //    private QuestionRepository questionRepository;
-
+//
 //    @PostConstruct
 //    public void initQuestion(){
 //        for (int i = 1;i<=10;i++){
