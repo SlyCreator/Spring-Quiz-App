@@ -1,6 +1,6 @@
 # Spring Quiz App
 
-This is a quiz app built with spring boot java framework
+This is a quiz / Examination system built with spring boot java framework
 
 ## Installation
 
@@ -8,7 +8,7 @@ Setup JDK in your computer before you can run this project.You can follow this l
 
 https://phoenixnap.com/kb/install-java-windows
 
-Clone the repository into the your computer.
+Clone the repository into your computer.
 
 Open the application in your favorite IDE/Text Editor.
 
@@ -37,15 +37,13 @@ mvn spring-boot:run
 
 
 ### Domain
-- User : This holds the information of the user entity.A using has a one to many relationship
+- User : This holds the information of the user entity.
 - Question : This holds a text field that store the questions into the table
 - Option : This holds the options that are available to a queston,also have a many to one relationship with  Question
 - Quiz : This belong to a user.it stores the quiz session that a user took.
 - QuizAnswer: This holds the information of the answer a user took.Also with it questionId.
 
 ### Api Documentation:
-The api documentation was documented using postman.
-
-
-[Api Documentation](https://documenter.getpostman.com/view/18994692/UVeFMS5j#140e21fc-a666-44e2-9060-eee40d820b19)
+The api documentation was documented using postman.Check the API Documentation by clicking this link
+[Here](https://documenter.getpostman.com/view/18994692/UVeFMS5j#140e21fc-a666-44e2-9060-eee40d820b19)
 
