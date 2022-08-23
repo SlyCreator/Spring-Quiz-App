@@ -15,28 +15,27 @@ public class TopicController {
     }
 
     @PostMapping
-    public AppResponse createTopic(@RequestBody Topic topic)
-    {
+    public AppResponse createTopic(@RequestBody Topic topic) {
         return this.topicService.create(topic);
     }
+
     @GetMapping
-    public AppResponse fetchAllTopics()
-    {
+    public AppResponse fetchAllTopics() {
         return this.topicService.fetchAll();
     }
+
     @GetMapping("/{id}")
-    public AppResponse fetchOneTopic(@PathVariable Integer id)
-    {
+    public AppResponse fetchOneTopic(@PathVariable Integer id) {
         return this.topicService.fetchOne(id);
     }
+
     @PatchMapping("/{id}")
-    public AppResponse updateTopic(@PathVariable Integer id,@RequestBody Topic topic)
-    {
-        return this.topicService.edit(topic,id);
+    public AppResponse updateTopic(@PathVariable Integer id, @RequestBody Topic topic) {
+        return this.topicService.edit(topic, id);
     }
+
     @DeleteMapping("/{id}")
-    public AppResponse deleteTopic(@PathVariable Integer id)
-    {
+    public AppResponse deleteTopic(@PathVariable Integer id) {
         return this.topicService.delete(id);
     }
 }

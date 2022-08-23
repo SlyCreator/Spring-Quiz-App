@@ -20,7 +20,7 @@ public class Question implements Serializable {
     private int id;
     private String question;
 
-    @OneToMany(mappedBy = "question",fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonIgnoreProperties("question")
     private List<Option> options;
 

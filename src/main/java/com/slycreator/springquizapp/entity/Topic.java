@@ -20,12 +20,12 @@ public class Topic {
 
     private int id;
 
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String title;
     @Column(nullable = false)
     private String description;
 
-   @OneToMany(mappedBy = "topic",fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany(mappedBy = "topic", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonIgnoreProperties("topic")
     private List<Question> questions;
 

@@ -23,8 +23,8 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public AppResponse create(Topic topic) {
         topicRepository.save(topic);
-        Map<String,Object> map = new HashMap<>();
-        map.put("topic",topic);
+        Map<String, Object> map = new HashMap<>();
+        map.put("topic", topic);
         return AppResponse.ok().code(201)
                 .data(map).message("created successfully");
     }
@@ -33,7 +33,7 @@ public class TopicServiceImpl implements TopicService {
     public AppResponse fetchAll() {
         Page<Topic> topics = topicRepository.findAll(Pageable.ofSize(10));
         Map<String, Object> map = new HashMap<>();
-        map.put("topics",topics);
+        map.put("topics", topics);
         return AppResponse.ok().code(200)
                 .data(map).message("Retrieved successfully");
     }
@@ -42,7 +42,7 @@ public class TopicServiceImpl implements TopicService {
     public AppResponse fetchOne(Integer integer) {
         Optional<Topic> topic = topicRepository.findById(integer);
         Map<String, Object> map = new HashMap<>();
-        map.put("topic",topic);
+        map.put("topic", topic);
         return AppResponse.ok().code(200)
                 .data(map).message("Retrieved successfully");
     }
@@ -53,7 +53,7 @@ public class TopicServiceImpl implements TopicService {
         updateTopic.setTitle(topic.getTitle());
         updateTopic.setDescription(topic.getDescription());
         Map map = new HashMap<>();
-        map.put("topic",map);
+        map.put("topic", map);
         return AppResponse.ok().code(200)
                 .data(map).message("updated successfully");
     }

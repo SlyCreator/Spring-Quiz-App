@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface OptionRepository extends JpaRepository<Option,Integer> {
+public interface OptionRepository extends JpaRepository<Option, Integer> {
     List<Option> findAllByIdIn(List<Integer> optionIdList);
 
 }

@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email);
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(),new ArrayList<>());
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
 
     @Override
@@ -45,28 +45,29 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         Map<String, Object> map = new HashMap<>();
-        map.put("user",user);
+        map.put("user", user);
         return AppResponse.ok().code(201)
                 .data(map).message("Registration successful");
     }
+
     public AppResponse login(LoginDto loginDTO) throws Exception {
         try {
 
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            loginDTO.getEmail(),loginDTO.getPassword()
+                            loginDTO.getEmail(), loginDTO.getPassword()
                     )
             );
-        }catch (Exception ex){
+        } catch (Exception ex) {
             throw new Exception("Email or Password is invalid");
         }
         String Bearer = jwtUtil.generateToken(loginDTO.getEmail());
-        Map<String,Object>map = new HashMap<>();
-        map.put("token",Bearer);
+        Map<String, Object> map = new HashMap<>();
+        map.put("token", Bearer);
         return AppResponse.ok().data(map).message("Login successfully");
     }
-    public User AuthUser()
-    {
+
+    public User AuthUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String email = userDetails.getUsername();
@@ -74,10 +75,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return user;
     }
 
-    public  AppResponse recoverPassword(String email){
+    public AppResponse recoverPassword(String email) {
         return null;
     }
-    public AppResponse verifyOTP(String otp){
+
+    public AppResponse verifyOTP(String otp) {
         return null;
     }
 

@@ -27,7 +27,7 @@ public class Quiz {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "quiz",fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonIgnoreProperties("quiz")
     private List<QuizAnswer> quizAnswers;
 }
