@@ -82,6 +82,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>QuizApp</finalName>
     </build>
 
 </project>
