@@ -16,7 +16,7 @@ import java.util.List;
 
 @SpringBootApplication
 public class SpringQuizAppApplication {
-//    @Autowired
+    //    @Autowired
 //    private QuestionRepository questionRepository;
 //
 //    @PostConstruct
@@ -54,7 +54,7 @@ public class SpringQuizAppApplication {
 //        }
 //    }
     @Bean
-    PasswordEncoder getPasswordEncoder(){
+    PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

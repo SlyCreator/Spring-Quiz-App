@@ -18,7 +18,7 @@ public class QuizController {
     }
 
     @PostMapping
-    public AppResponse submitQuiz(@RequestBody QuizVO quizVO){
-        return  this.quizService.submitQuiz(quizVO);
+    public AppResponse submitQuiz(@RequestBody QuizVO quizVO) {
+        return this.quizService.submitQuiz(quizVO);
     }
 }

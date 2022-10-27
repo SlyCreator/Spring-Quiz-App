@@ -8,7 +8,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
-
 @RunWith(SpringRunner.class)
 class QuizServiceImplTest {
     private final QuizServiceImpl quizService;
@@ -16,6 +15,7 @@ class QuizServiceImplTest {
     QuizServiceImplTest(QuizServiceImpl quizService) {
         this.quizService = quizService;
     }
+
     @MockBean
     private QuizRepository repository;
 

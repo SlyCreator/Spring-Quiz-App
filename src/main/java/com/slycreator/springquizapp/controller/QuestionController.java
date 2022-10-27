@@ -15,30 +15,32 @@ public class QuestionController {
     }
 
     @GetMapping
-    public AppResponse fetchQuestions(){
+    public AppResponse fetchQuestions() {
         return this.questionService.fetchAll();
     }
+
     @GetMapping("/{id}")
-    public AppResponse fetchOneQuestion(@PathVariable Integer id){
+    public AppResponse fetchOneQuestion(@PathVariable Integer id) {
         return this.questionService.fetchOne(id);
     }
+
     @GetMapping("quiz")
-    public AppResponse fetchRandomly(@RequestBody Integer integer){
+    public AppResponse fetchRandomly(@RequestBody Integer integer) {
         return this.questionService.fetchRandom(integer);
     }
 
     @PostMapping
-    public AppResponse saveQuestion(@RequestBody QuestionVO questionVO){
+    public AppResponse saveQuestion(@RequestBody QuestionVO questionVO) {
         return this.questionService.create(questionVO);
     }
 
     @PatchMapping("/{id}")
-    public AppResponse editQuestion(@RequestBody QuestionVO questionVO,@PathVariable Integer id){
-        return this.questionService.edit(questionVO,id);
+    public AppResponse editQuestion(@RequestBody QuestionVO questionVO, @PathVariable Integer id) {
+        return this.questionService.edit(questionVO, id);
     }
 
     @DeleteMapping("/{id}")
-    public AppResponse deleteQuestion(@PathVariable Integer id){
+    public AppResponse deleteQuestion(@PathVariable Integer id) {
         return this.questionService.delete(id);
     }
 }

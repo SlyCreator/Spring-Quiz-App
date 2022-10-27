@@ -36,8 +36,8 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public AppResponse submitQuiz(QuizVO quizVO) {
 
-      List<Integer> list = Arrays.stream(quizVO.getAnswers()).boxed().collect(Collectors.toList());
-      List<Option> optionList = optionRepository.findAllByIdIn(list);
+        List<Integer> list = Arrays.stream(quizVO.getAnswers()).boxed().collect(Collectors.toList());
+        List<Option> optionList = optionRepository.findAllByIdIn(list);
 
         AtomicInteger score = new AtomicInteger();
         Quiz quiz = new Quiz();
@@ -46,9 +46,9 @@ public class QuizServiceImpl implements QuizService {
 
 
         List<QuizAnswer> quizAnswers = new ArrayList<>();
-        optionList.stream().forEach((option)->{
+        optionList.stream().forEach((option) -> {
             boolean isCorrect = false;
-            if (option.getIsCorrect() == true){
+            if (option.getIsCorrect() == true) {
                 isCorrect = true;
                 score.getAndIncrement();
             }
@@ -63,8 +63,8 @@ public class QuizServiceImpl implements QuizService {
         quiz.setScore(score.intValue());
         quiz.setQuizAnswers(quizAnswers);
         quizRepository.save(quiz);
-        Map<String,Object> map = new HashMap<>();
-        map.put("result",quiz);
+        Map<String, Object> map = new HashMap<>();
+        map.put("result", quiz);
         return AppResponse.ok().data(map).message("Quiz Submitted successfully");
     }
 }

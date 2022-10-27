@@ -28,51 +28,51 @@ public class QuestionServiceImpl implements QuestionService {
     @Transactional
     @Override
     public AppResponse create(QuestionVO questionVO) {
-            Topic topic = topicRepository.findById(questionVO.getTopicId()).orElse(null);
-            Question question = new Question();
-            question.setQuestion(questionVO.getQuestion());
-            question.setTopic(topic);
-            List<Option> optionVOList = questionVO.getOptions();
+        Topic topic = topicRepository.findById(questionVO.getTopicId()).orElse(null);
+        Question question = new Question();
+        question.setQuestion(questionVO.getQuestion());
+        question.setTopic(topic);
+        List<Option> optionVOList = questionVO.getOptions();
 
-            /**commit the options**/
-            List<Option> options = new ArrayList<>();
-            optionVOList.stream().forEach((optionVo) ->{
-                Option option = new Option();
-                option.setOption(optionVo.getOption());
-                System.out.println("Notice Me "+ optionVo.getIsCorrect());
-                option.setCorrect(optionVo.getIsCorrect());
-                option.setQuestion(question);
-                options.add(option);
-            });
+        /**commit the options**/
+        List<Option> options = new ArrayList<>();
+        optionVOList.stream().forEach((optionVo) -> {
+            Option option = new Option();
+            option.setOption(optionVo.getOption());
+            System.out.println("Notice Me " + optionVo.getIsCorrect());
+            option.setCorrect(optionVo.getIsCorrect());
+            option.setQuestion(question);
+            options.add(option);
+        });
 
-            question.setOptions(options);
-            questionRepository.save(question);
-        Map<String,Object> map = new HashMap<>();
-        map.put("question",question);
+        question.setOptions(options);
+        questionRepository.save(question);
+        Map<String, Object> map = new HashMap<>();
+        map.put("question", question);
         return AppResponse.ok().code(201).data(map).message("questions and options created successfully");
     }
 
     @Override
     public AppResponse fetchAll() {
         Page<Question> questions = questionRepository.findAll(Pageable.ofSize(10));
-        Map<String,Object> map = new HashMap<>();
-        map.put("questions",questions);
+        Map<String, Object> map = new HashMap<>();
+        map.put("questions", questions);
         return AppResponse.ok().data(map).message("questions and options retrieved successfully");
     }
 
     @Override
     public AppResponse fetchRandom(Integer integer) {
         Page<Question> questions = questionRepository.findAll(Pageable.ofSize(integer));
-        Map<String,Object> map = new HashMap<>();
-        map.put("questions",questions);
+        Map<String, Object> map = new HashMap<>();
+        map.put("questions", questions);
         return AppResponse.ok().data(map).message("questions and options retrieved successfully");
     }
 
     @Override
     public AppResponse fetchOne(Integer integer) {
         Optional<Question> question = questionRepository.findById(integer);
-        Map<String,Object> map = new HashMap<>();
-        map.put("questions",question);
+        Map<String, Object> map = new HashMap<>();
+        map.put("questions", question);
         return AppResponse.ok().data(map).message("question and options retrieved successfully");
 
     }
@@ -87,17 +87,17 @@ public class QuestionServiceImpl implements QuestionService {
 
         /**commit the options**/
         List<Option> options = new ArrayList<>();
-        optionVOList.stream().forEach((optionVo) ->{
+        optionVOList.stream().forEach((optionVo) -> {
             Option option = new Option();
-          //  option.setOption(optionVo.getOption());
+            //  option.setOption(optionVo.getOption());
             option.setQuestion(question);
             options.add(option);
         });
 
         question.setOptions(options);
         questionRepository.save(question);
-        Map<String,Object> map = new HashMap<>();
-        map.put("question",question);
+        Map<String, Object> map = new HashMap<>();
+        map.put("question", question);
         return AppResponse.ok().code(201).data(map).message("questions and options created successfully");
     }
 

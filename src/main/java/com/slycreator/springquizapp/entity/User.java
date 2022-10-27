@@ -18,7 +18,7 @@ public class User implements Serializable {
     @GeneratedValue
     private UUID id;
 
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
 
     @Column(nullable = false)

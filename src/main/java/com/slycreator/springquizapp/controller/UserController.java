@@ -14,14 +14,13 @@ public class UserController {
     private UserServiceImpl userService;
 
     @GetMapping("/me")
-    public String welcome(){
+    public String welcome() {
         return "You are logged In ---------";
     }
 
     @PostMapping("/register")
-    public AppResponse register(@RequestBody User user)
-    {
-     return this.userService.saveUser(user);
+    public AppResponse register(@RequestBody User user) {
+        return this.userService.saveUser(user);
     }
 
     @PostMapping("/login")

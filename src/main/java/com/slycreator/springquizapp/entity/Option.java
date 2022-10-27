@@ -27,6 +27,7 @@ public class Option {
     public boolean getIsCorrect() {
         return this.correct;
     }
+
     @JsonProperty
     public boolean setIsCorrect(boolean correct) {
         return this.correct = correct;

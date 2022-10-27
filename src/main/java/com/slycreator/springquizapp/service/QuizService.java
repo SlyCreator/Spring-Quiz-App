@@ -5,5 +5,5 @@ import com.slycreator.springquizapp.dto.QuizVO;
 import com.slycreator.springquizapp.response.AppResponse;
 
 public interface QuizService {
-    public AppResponse submitQuiz(QuizVO quizVO) ;
+    public AppResponse submitQuiz(QuizVO quizVO);
 }
