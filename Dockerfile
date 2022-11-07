@@ -1,4 +1,7 @@
-FROM openjdk:8
+FROM openjdk:8-jdk-alpine
+#FROM openjdk:8
 EXPOSE 8080
-ADD target/QuizApp.jar QuizApp.jar
-ENTRYPOINT["java","-jar","/QuizApp.jar"]
+ADD target/quiz-app.jar quiz-app.jar
+ENTRYPOINT ["java","-jar","/quiz-app.jar"]
+
+

@@ -82,7 +82,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>QuizApp</finalName>
+        <finalName>quiz-app</finalName>
     </build>
 
 </project>
