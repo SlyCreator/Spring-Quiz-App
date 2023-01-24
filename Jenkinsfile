@@ -10,21 +10,8 @@ pipeline{
                 sh 'mvn clean install'
             }
         }
-        stage('Build Docker image'){
-            steps{
-                sh 'docker build -t slycreator/quiz-app .'
-            }
-        }
 
-        stage('Push to Container Registry'){
-            steps{
-                script {
-                    withCredentials([gitUsernamePassword(credentialsId: '', gitToolName: 'Default'), string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
-                        sh 'docker login -u slycreator -p ${dockerpwd}'
-                    }
-                    sh 'docker push slycreator/quiz-app'
-                }
-            }
-        }
+
+        
     }
 }
