@@ -5,8 +5,9 @@ pipeline{
     }
     stages{
         stage('Build Maven Project'){
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'git branch: \'main\', url: \'https://github.com/SlyCreator/Spring-Quiz-App.git\'']]])
+   
+             steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SlyCreator/Spring-Quiz-App.git']]])
                 sh 'mvn clean install'
             }
         }
