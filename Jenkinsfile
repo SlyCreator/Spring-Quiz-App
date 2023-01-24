@@ -21,6 +21,7 @@ pipeline{
                 script {
                     withCredentials([gitUsernamePassword(credentialsId: '', gitToolName: 'Default'), string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
                         sh 'docker login -u slycreator -p ${dockerpwd}'
+
                     }
                     sh 'docker push slycreator/quiz-app'
                 }
